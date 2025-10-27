@@ -5,19 +5,18 @@ import PackageDescription
 
 let package = Package(
     name: "FontLoader",
+    platforms: [
+        .iOS(.v13), .macOS(.v11)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "FontLoader",
-            targets: ["FontLoader"]
-        ),
+        .library(name: "FontLoader", targets: ["FontLoader"])
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "FontLoader"
-        ),
-
+            name: "FontLoader",
+            resources: [
+                .process("Resources")
+            ]
+        )
     ]
 )
